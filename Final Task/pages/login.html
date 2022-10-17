@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LOGIN</title>
+        <link
+        href="../styles/styleSheet.css"
+        rel="styleSheet"
+        />
+    </head>
+    <body>
+        <div id ="error"></div>
+        <form id="logIn" action="/" method="GET">
+            <div>
+                <label for="name">Login name</label><br>
+                <input type="text" id="name" placeholder="name" required><br>
+            </div>
+            <div>
+                <label for="password">Login password</label><br>
+                <input type="password" id="password" placeholder="password" required><br>
+            </div>
+            <button type="submit" id="submit">Login</button>
+        </form>
+       <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+       <script type="text/javascript" src="../scripts/login.js"></script>
+    </body>
+</html>

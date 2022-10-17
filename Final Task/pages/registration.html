@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>REGISTRATION</title>
+        <link
+        href="../styles/styleSheet.css"
+        rel="styleSheet"
+        />
+    </head>
+    <body>
+        <div id ="error"></div>
+        <form id="Reg" action="/" method="POST">
+            <div>
+                <label for="name">Name</label><br>
+                <input type="text" id="name" placeholder="name" required><br>
+            </div>
+            <div>
+                <label for="password">Password</label><br>
+                <input type="password" id="password" name="password" placeholder="password" required><br>
+            </div>
+            <div>
+                <label for="email">Email</label><br/>
+                <input type="email" id="email" name="email"/><br/>
+            </div>
+            <button type="submit" id="submit">Register new user</button>
+        </form>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+       <script type="text/javascript" src="../scripts/registration.js"></script>
+    </body>
+</html>

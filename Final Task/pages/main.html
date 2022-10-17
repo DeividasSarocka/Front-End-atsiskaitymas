@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MAIN PAGE</title>
+        <link
+        href="../styles/styleSheet.css"
+        rel="styleSheet"
+        />
+    </head>
+    <body>
+        <nav class="navbar">
+        <div class="user-menu" id="user-menu">
+            <div class ="home" type="text" id="user-name"></div>
+            <div class="home" type="text" id="user-email"></div>
+            <input class="logout" type="button" id="logout" value="LogOut">
+        </div>
+    </nav>
+        <header>
+            <h1> TO DO App</h1>
+            <form id="new-task-form">
+                <select id="task-type" name="task-type">
+                    <option value="type">Type</option>
+                    <option value="home">Home</option>
+                    <option value="work">Work</option>
+                    <option value="holiday">Holiday</option>
+                    <input type="text" id="new-task-input" placeholder="What you are planning?" />
+                    <input type="date" id="task-date"/>
+
+                    <input type="submit" id="new-task-submit" value="Add task" />
+            </form>
+            <ul id="todolist"></ul>
+        </header>
+        <main>
+            <div id="tasks">
+                <h2>Tasks</h2>
+        </main>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+        <script type="text/javascript" src="../scripts/main.js"></script>
+    </body>
+</html>
