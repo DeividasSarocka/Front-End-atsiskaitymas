@@ -12,10 +12,6 @@ const listElement = document.querySelector("#tasks");
 userNamePost.innerHTML = sessionStorage.getItem("userName");
 userEmailPost.innerHTML = sessionStorage.getItem("userEmail");
 const userId = sessionStorage.getItem("userId");
-const type = sessionStorage.getItem("taskType");
-const content = sessionStorage.getItem("taskTask");
-const endDate = sessionStorage.getItem("taskEndDate");
-const id = sessionStorage.getItem("taskID")
 
 var alltasksRawData = tasksRawDataApi();
 
@@ -67,12 +63,6 @@ function tasksRawDataApi(){
 
 
                     const task = document.createElement("div");
-
-                    sessionStorage.setItem('taskID', result[i].id);
-                    sessionStorage.setItem('taskType', result[i].type);     
-                    sessionStorage.setItem('taskTask', result[i].content);
-                    sessionStorage.setItem('taskEndDate', result[i].endDate);
-
                     task.innerHTML= `
                    <b> Task ID: ${result[i].id} </b><br>
                     Where to do task: ${result[i].type} <br> 
@@ -118,7 +108,17 @@ function tasksRawDataApi(){
 
                             taskEdit.addEventListener("click", () => {
 
-                                task.innerText
+                                var str = task.innerText;
+                                var taskIdAfter_ = str.split(': ')[1];
+                                var id = taskIdAfter_.split('Where to do task')[0].trimEnd();
+                                var taskIdAfter2_ = str.split(': ')[2];
+                                var type = taskIdAfter2_.split('Task')[0].trimEnd();
+                                var taskIdAfter3_ = str.split(': ')[3];
+                                var content = taskIdAfter3_.split('End Date')[0].trimEnd();
+                                var endDate = str.split(': ')[4];
+                              
+                            
+                              
                                 fetch(`https://localhost:7171/api/ToDo/${result[i].id}`, {
                                     method: "PUT",
                                     headers: {
@@ -129,10 +129,10 @@ function tasksRawDataApi(){
                                         type,
                                         content,
                                         endDate,
-                                        userId,
-                                        id,
+                                        id
                                     }),
                                 });
+                                window.location.href = "../pages/main.html";
                             });
                         }else {
                             task.setAttribute("readonly", "readonly");
