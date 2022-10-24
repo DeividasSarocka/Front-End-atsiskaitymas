@@ -82,6 +82,7 @@ function tasksRawDataApi(){
                     taskDelete.innerHTML = "Delete";
 
                     const taskEdit = document.createElement("button");
+                    const taskEdit1 = document.createElement("button");
 
                     taskEdit.classList.add("edit");
                     taskEdit.innerHTML = "Edit";
@@ -102,7 +103,7 @@ function tasksRawDataApi(){
                         });
 //EDIT
                     taskEdit.addEventListener("click", () => {
-                        if (taskEdit.innerText.toLocaleLowerCase() == "edit") {
+                        if (taskEdit1.innerText.toLocaleLowerCase() || taskEdit.innerText.toLocaleLowerCase() == "edit") {
 
                             taskId.contentEditable = false; 
                             taskType.contentEditable = true; 
@@ -133,7 +134,7 @@ function tasksRawDataApi(){
                             taskType.setAttribute("readonly", "readonly");
                             taskContent.setAttribute("readonly", "readonly");
                             taskEndDate.setAttribute("readonly", "readonly");
-                            taskEdit.innerHTML = "Edit";
+                            taskEdit1.innerHTML = "Edit";
                     }
 })
                 }
