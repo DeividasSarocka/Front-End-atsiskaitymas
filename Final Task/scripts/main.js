@@ -105,6 +105,7 @@ function tasksRawDataApi(){
                     taskEdit.addEventListener("click", editAndSave);
             
                     let doAction = editAction;
+                    
                             function editAndSave() {
                                 doAction();
                             }
@@ -135,7 +136,6 @@ function tasksRawDataApi(){
                                         }),
                                     });
                                     window.location.href = "../pages/main.html";
-                                doAction = editAction;
                             }
                 }
             }
