@@ -82,7 +82,6 @@ function tasksRawDataApi(){
                     taskDelete.innerHTML = "Delete";
 
                     const taskEdit = document.createElement("button");
-                    const taskEdit1 = document.createElement("button");
 
                     taskEdit.classList.add("edit");
                     taskEdit.innerHTML = "Edit";
@@ -102,41 +101,42 @@ function tasksRawDataApi(){
                                                 window.location.href = "../pages/main.html";
                         });
 //EDIT
-                    taskEdit.addEventListener("click", () => {
-                        if (taskEdit1.innerText.toLocaleLowerCase() || taskEdit.innerText.toLocaleLowerCase() == "edit") {
 
-                            taskId.contentEditable = false; 
-                            taskType.contentEditable = true; 
-                            taskType.style.backgroundColor = "#dddbdb";
-                            taskContent.contentEditable = true; 
-                            taskContent.style.backgroundColor = "#dddbdb";
-                            taskEndDate.contentEditable = true; 
-                            taskEndDate.style.backgroundColor = "#dddbdb"; 
-                            taskEdit.innerHTML = "Save";
-
-                            taskEdit.addEventListener("click", () => {
-                                fetch(`https://localhost:7171/api/ToDo/${result[i].id}`, {
-                                    method: "PUT",
-                                    headers: {
-                                        "Content-type": "application/json",
-                                    },
-                                    body: JSON.stringify({
-                                        userId,
-                                        type : taskType.innerText,
-                                        content : taskContent.innerText,
-                                        endDate : taskEndDate.innerText,
-                                        id : taskId.innerText
-                                    }),
-                                });
-                                window.location.href = "../pages/main.html";
-                            });
-                        }else {
-                            taskType.setAttribute("readonly", "readonly");
-                            taskContent.setAttribute("readonly", "readonly");
-                            taskEndDate.setAttribute("readonly", "readonly");
-                            taskEdit1.innerHTML = "Edit";
-                    }
-})
+                    taskEdit.addEventListener("click", editAndSave);
+            
+                    let doAction = editAction;
+                            function editAndSave() {
+                                doAction();
+                            }
+                            function editAction() {
+                                taskId.contentEditable = false; 
+                                taskType.contentEditable = true; 
+                                taskType.style.backgroundColor = "#dddbdb";
+                                taskContent.contentEditable = true; 
+                                taskContent.style.backgroundColor = "#dddbdb";
+                                taskEndDate.contentEditable = true; 
+                                taskEndDate.style.backgroundColor = "#dddbdb"; 
+                                taskEdit.innerHTML = "Save";
+                                doAction = saveAction;
+                            }
+                            function saveAction(){
+                                
+                                    fetch(`https://localhost:7171/api/ToDo/${result[i].id}`, {
+                                        method: "PUT",
+                                        headers: {
+                                            "Content-type": "application/json",
+                                        },
+                                        body: JSON.stringify({
+                                            userId,
+                                            type : taskType.innerText,
+                                            content : taskContent.innerText,
+                                            endDate : taskEndDate.innerText,
+                                            id : taskId.innerText
+                                        }),
+                                    });
+                                    window.location.href = "../pages/main.html";
+                                doAction = editAction;
+                            }
                 }
             }
         }
