@@ -21,21 +21,15 @@ Reg.addEventListener('submit', (event) => {
 })
 .then(Response => {
     if(Response.ok){
-        toastr.success('Successfully registered new user!');
-        setTimeout(function(){
             window.location.href = "../pages/login.html";
-        },1500)
         return Response.json();
     }
     else{
-        toastr.options.timeOut = 1500;
         toastr.error('Bad input data / or this user is already registered')
         return;
     }
-    return Response.json();
 })
 .catch(err => {
     console.log("Catched: " + err);
 })
-//    window.location.href = "../pages/login.html";
 })

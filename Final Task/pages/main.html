@@ -25,14 +25,15 @@
                     <option value="holiday">Holiday</option>
                     <input type="text" id="new-task-input" placeholder="What you are planning?" />
                     <input type="date" id="task-date"/>
-
                     <input type="submit" id="new-task-submit" value="Add task" />
             </form>
             <ul id="todolist"></ul>
         </header>
         <main>
-            <div id="tasks">
-                <h2>Tasks</h2>
+            <h2>Tasks</h2>
+            <div class="flex-container">
+                <div id="tasks"></div>
+            </div>
         </main>
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>

@@ -1,8 +1,7 @@
 
 body {
-    width: 100%;
-    height: 45vh;
     display: flex;
+    flex-flow: column;
     justify-content: center;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
@@ -40,11 +39,10 @@ button{
 }
 
 main{
-    position: absolute;
-    left: 100px;
-    top: 450px;
+    display: flex;
+    justify-content: left;
     height:fit-content;
-    width: 250px;
+    width: 300px;
 	min-width: 100px;
 	min-height: 60px;
     padding: 25px;
@@ -57,16 +55,30 @@ main{
     font-size: 15px;
     letter-spacing: 1px;
 }
+.flex-container {
+    justify-content: left;
+    height:fit-content;
+    width: 300px;
+	min-width: 100px;
+	min-height: 60px;
+    padding: 25px;
+	border-radius: 10px;
+    margin-bottom: 25px;
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+  
 
 nav{
-    position: absolute;
-    left: 10px;
-    top: 10px;
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
+    left: 0;
+    nav-left: auto;
     height:fit-content;
     width: fit-content;
     border-radius: 10px;
     margin-bottom: 20px;
     font-size: 15px;
     letter-spacing: 1px;
-
 }
